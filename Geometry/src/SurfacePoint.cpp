@@ -11,17 +11,17 @@ SurfacePoint::SurfacePoint(double _x, double _y, double _z)
 SurfacePoint::~SurfacePoint()
 {
 }
-int SurfacePoint::X()
+double SurfacePoint::X()
 {
 	return x;
 }
 
-int SurfacePoint::Y()
+double SurfacePoint::Y()
 {
 	return y;
 }
 
-int SurfacePoint::Z()
+double SurfacePoint::Z()
 {
 	return z;
 }

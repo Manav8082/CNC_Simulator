@@ -11,9 +11,9 @@ namespace Geometry
 	public:
 		SurfacePoint(double, double, double);
 		~SurfacePoint();
-		int X();
-		int Y();
-		int Z();
+		double X();
+		double Y();
+		double Z();
 		bool operator==(const SurfacePoint& other) const;
 		bool operator<(const SurfacePoint& other) const;
 		
