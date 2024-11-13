@@ -6,10 +6,9 @@ using namespace std;
 class Intersector
 {
 public:
-	double y;
-	Triangle t;
-
+	Intersector();
+	~Intersector();
 	SurfacePoint* isIntersecting(Point& p1, Point& p2, double y, const vector<double>& uniqueValues);
-	vector<SurfacePoint> intersect(const Triangle& t, double y, const Triangulation&);
+	vector<SurfacePoint> intersect( Triangle& t, double y, const Triangulation&);
 
 };

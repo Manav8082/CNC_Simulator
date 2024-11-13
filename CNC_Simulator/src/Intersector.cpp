@@ -2,6 +2,14 @@
 #include "SurfacePoint.h"
 using namespace Geometry;
 
+Intersector::Intersector()
+{
+}
+
+Intersector::~Intersector()
+{
+}
+
 SurfacePoint* Intersector::isIntersecting(Point& p1, Point& p2, double y, const vector<double>& uniqueValues)
 {
 
@@ -14,7 +22,7 @@ SurfacePoint* Intersector::isIntersecting(Point& p1, Point& p2, double y, const 
     return nullptr;
 }
 
-vector<SurfacePoint> Intersector::intersect(const Triangle& triangle, double y, const Triangulation& tri)
+vector<SurfacePoint> Intersector::intersect( Triangle& t, double y, const Triangulation& tri)
 {
     vector<SurfacePoint> intersectingPts;
 
