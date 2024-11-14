@@ -43,6 +43,10 @@ bool SurfacePoint::operator==(const SurfacePoint& other) const
 {
 	return x == other.x && y == other.y && z == other.z;
 }
+bool SurfacePoint::operator!=(const SurfacePoint& other) const
+{
+	return !(*this == other);
+}
  
 SurfacePoint SurfacePoint::CrossProduct(SurfacePoint& p)
 {

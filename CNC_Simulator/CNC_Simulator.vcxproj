@@ -112,6 +112,7 @@
     <QtMoc Include="headers\CNC_Simulator.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\BoundingBox.h" />
     <ClInclude Include="headers\Intersector.h" />
     <ClInclude Include="headers\PathCreator.h" />
     <ClInclude Include="headers\Reader.h" />
@@ -119,6 +120,7 @@
     <ClInclude Include="headers\OBJReader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\BoundingBox.cpp" />
     <ClCompile Include="src\CNC_Simulator.cpp" />
     <ClCompile Include="src\Intersector.cpp" />
     <ClCompile Include="src\main.cpp" />

@@ -119,7 +119,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Geometry\headers;D:\narayanWorkspace\CNC_Simulator\Transformation\headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Geometry\headers;$(ProjectDir)headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

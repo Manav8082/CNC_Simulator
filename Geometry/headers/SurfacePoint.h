@@ -23,6 +23,7 @@ namespace Geometry
 		double Y();
 		double Z();
 		bool operator==(const SurfacePoint& other) const;
+		bool operator!=(const SurfacePoint& other) const;
 		bool operator<(const SurfacePoint& other) const;
 		SurfacePoint CrossProduct(SurfacePoint& p);
 		SurfacePoint calculateNormal(SurfacePoint& A, SurfacePoint& B, SurfacePoint& C);
