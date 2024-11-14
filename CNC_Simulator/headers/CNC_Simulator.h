@@ -1,16 +1,39 @@
 #pragma once
+#include "Triangulation.h"
+#include <QPushButton>
+#include "OpenglWidget.h"
+#include <QMessageBox>
 
 #include <QtWidgets/QMainWindow>
-#include "ui_CNC_Simulator.h"
+
+using namespace Geometry;
 
 class CNC_Simulator : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    void setupUi();
+    OpenGlWidget::Data convertTrianglulationToGraphicsObject(const Triangulation& inTriangulation);
+    void readFile(const QString&);
+
 public:
     CNC_Simulator(QWidget *parent = nullptr);
     ~CNC_Simulator();
 
+private slots:
+    void onLoadFileClick();
+    void onSimulateClick();
+
 private:
-    Ui::CNC_SimulatorClass ui;
+    QPushButton* loadFile;
+    QPushButton* simulate;
+    OpenGlWidget* openglWindow;
+
+    QVector<GLfloat> vertices;
+
+private:
+    QString inputFilePath;
+    QMessageBox msgBox;
+    Triangulation inTri;
 };

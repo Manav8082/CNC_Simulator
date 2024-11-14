@@ -64,7 +64,16 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\ManavWorkspace\CNC_Simulator\CNC_Simulator\headers;E:\ManavWorkspace\CNC_Simulator\Geometry\headers;E:\ManavWorkspace\CNC_Simulator\Transformation\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Transformation\headers;$(SolutionDir)Geometry\headers;$(ProjectDir)headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Geometry.lib;Transformation.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutputPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Transformation\headers;$(SolutionDir)Geometry\headers;$(ProjectDir)headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Geometry.lib;Transformation.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -105,12 +114,18 @@
   <ItemGroup>
     <ClInclude Include="headers\Intersector.h" />
     <ClInclude Include="headers\PathCreator.h" />
+    <ClInclude Include="headers\Reader.h" />
+    <QtMoc Include="headers\OpenglWidget.h" />
+    <ClInclude Include="headers\OBJReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CNC_Simulator.cpp" />
     <ClCompile Include="src\Intersector.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\OBJReader.cpp" />
+    <ClCompile Include="src\OpenglWidget.cpp" />
     <ClCompile Include="src\PathCreator.cpp" />
+    <ClCompile Include="src\Reader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

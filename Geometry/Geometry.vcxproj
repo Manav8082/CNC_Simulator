@@ -113,7 +113,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)/headers;$(SolutionDir)/Geometry/headers;E:\ManavWorkspace\VisualizerQt\Visualize_FinalCode\Transformation\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Transformation\headers;D:\narayanWorkspace\CNC_Simulator\Geometry\headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -131,6 +131,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Transformation\headers;D:\narayanWorkspace\CNC_Simulator\Geometry\headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

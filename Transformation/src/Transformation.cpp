@@ -29,22 +29,20 @@ Triangulation Transformation::Transformation::scaling(Triangulation& triangulati
         tempvect.push_back(tri.Normal());
         for (Point pt : tempvect)
         {
-            nmatrix = matrix.multiply(triangulation.UniqueNumbers[pt.X()], triangulation.UniqueNumbers[pt.Y()], triangulation.UniqueNumbers[pt.Z()]);
+            nmatrix = matrix.multiply(triangulation.uniqueNumbers[pt.X()], triangulation.uniqueNumbers[pt.Y()], triangulation.uniqueNumbers[pt.Z()]);
             int pts[3];
             for (int i = 0; i < 3; i++)
             {
                 auto pair = uniqueMap.find(nmatrix[i]);
                 if (pair == uniqueMap.end())
                 {
-                    newtriangulation.UniqueNumbers.push_back(nmatrix[i]);
-                    uniqueMap[nmatrix[i]] = newtriangulation.UniqueNumbers.size() - 1;
-                    pts[i] = newtriangulation.UniqueNumbers.size() - 1;
-
+                    newtriangulation.uniqueNumbers.push_back(nmatrix[i]);
+                    uniqueMap[nmatrix[i]] = newtriangulation.uniqueNumbers.size() - 1;
+                    pts[i] = newtriangulation.uniqueNumbers.size() - 1;
                 }
                 else
                 {
                     pts[i] = pair->second;
-
                 }
             }
             vertices.push_back(Point(pts[0], pts[1], pts[2]));
@@ -69,22 +67,20 @@ Triangulation Transformation::Transformation::Translatate(Triangulation& triangu
         tempvect.push_back(tri.Normal());
         for (Point pt : tempvect)
         {
-            nmatrix = matrix.multiply(triangulation.UniqueNumbers[pt.X()], triangulation.UniqueNumbers[pt.Y()], triangulation.UniqueNumbers[pt.Z()]);
+            nmatrix = matrix.multiply(triangulation.uniqueNumbers[pt.X()], triangulation.uniqueNumbers[pt.Y()], triangulation.uniqueNumbers[pt.Z()]);
             int pts[3];
             for (int i = 0; i < 3; i++)
             {
                 auto pair = uniqueMap.find(nmatrix[i]);
                 if (pair == uniqueMap.end())
                 {
-                    newtriangulation.UniqueNumbers.push_back(nmatrix[i]);
-                    uniqueMap[nmatrix[i]] = newtriangulation.UniqueNumbers.size() - 1;
-                    pts[i] = newtriangulation.UniqueNumbers.size() - 1;
-
+                    newtriangulation.uniqueNumbers.push_back(nmatrix[i]);
+                    uniqueMap[nmatrix[i]] = newtriangulation.uniqueNumbers.size() - 1;
+                    pts[i] = newtriangulation.uniqueNumbers.size() - 1;
                 }
                 else
                 {
                     pts[i] = pair->second;
-
                 }
             }
             vertices.push_back(Point(pts[0], pts[1], pts[2]));

@@ -1,6 +1,6 @@
 #pragma once
 #include "Triangle.h"
-#include<vector>
+#include <vector>
 namespace Geometry
 {
     class Triangulation
@@ -9,7 +9,7 @@ namespace Geometry
         Triangulation();
         ~Triangulation();
 
-        std::vector<double> UniqueNumbers;
+        std::vector<double> uniqueNumbers;
         std::vector<Triangle> Triangles;
     };
 }
