@@ -26,13 +26,13 @@ void OpenGlWidget::setData(Data inData)
     update();
 }
 
-void OpenGlWidget::setData(vector<SurfacePoint> pts)
-{
-    data = inData;
-    makeCurrent();
-    initializeGL();
-    update();
-}
+//void OpenGlWidget::setData(vector<SurfacePoint> pts)
+//{
+//    //data = inData;
+//    makeCurrent();
+//    initializeGL();
+//    update();
+//}
 
 QSize OpenGlWidget::minimumSizeHint() const
 {

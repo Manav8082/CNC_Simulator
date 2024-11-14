@@ -9,8 +9,10 @@
 #include <sstream>
 #include <cassert>
 #include <string>
+#include "CNC_Simulator.h"
 #include <QDebug>
 #include <map>
+#include "BoundingBox.h"
 #define TOLERANCE 0.0000001
 using namespace Geometry;
 
@@ -30,11 +32,11 @@ Point OBJReader::vectorReader(const QStringList& lineList, std::map<double, int,
     xyz[0] = lineList.value(1).toDouble();
     xyz[1] = lineList.value(2).toDouble();
     xyz[2] = lineList.value(3).toDouble();
-
     int pt[3];
 
     for (int i = 0; i < 3; i++)
     {
+        
         auto pair = uniqueMap.find(xyz[i]);
         if (pair == uniqueMap.end())
         {

@@ -3,7 +3,7 @@
 #include <QPushButton>
 #include "OpenglWidget.h"
 #include <QMessageBox>
-
+#include "BoundingBox.h"
 #include <QtWidgets/QMainWindow>
 
 using namespace Geometry;
@@ -15,6 +15,7 @@ class CNC_Simulator : public QMainWindow
 private:
     void setupUi();
     OpenGlWidget::Data convertTrianglulationToGraphicsObject(const Triangulation& inTriangulation);
+    OpenGlWidget::Data convertBoundingBoxToGraphicsObject(const BoundingBox& b);
     void readFile(const QString&);
 
 public:

@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include "OBJReader.h"
 #include "PathCreator.h"
+#include "BoundingBox.h"
 using namespace std;
 
 void CNC_Simulator::setupUi()
@@ -46,6 +47,16 @@ OpenGlWidget::Data CNC_Simulator::convertTrianglulationToGraphicsObject(const Tr
     return data;
 }
 
+//OpenGlWidget::Data CNC_Simulator::convertBoundingBoxToGraphicsObject(const BoundingBox& b)
+//{
+//
+//    OpenGlWidget::Data data;
+//    for (auto b1 : b.triangles)
+//    {
+//        
+//    }
+//}
+
 CNC_Simulator::CNC_Simulator(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -61,19 +72,11 @@ CNC_Simulator::~CNC_Simulator()
 void CNC_Simulator::onSimulateClick()
 {
     PathCreator pc;
-    vector<vector<SurfacePoint>> vectorOfPoints = pc.createPath(inTri, 0.866000, -0.866000);
+    vector<vector<SurfacePoint>> vectorOfPoints = pc.CreatePath(inTri, 100, -100);
     OpenGlWidget::Data data = convertTrianglulationToGraphicsObject(inTri);
-    
-    vector<SurfacePoint> pts;
-    for (auto vec : vectorOfPoints)
-    {
-        for (auto point : vec)
-        {
-            pts.push_back(point);
-        }
-    }
 
-    openglWindow->setData(pts);
+    
+    openglWindow->setData(data);
 }
 
 void  CNC_Simulator::onLoadFileClick()
@@ -85,6 +88,9 @@ void  CNC_Simulator::onLoadFileClick()
     {
         inputFilePath = fileName;
         readFile(inputFilePath);
+        BoundingBox b;
+        b.GenerateTriangles();
+
     }
     else
     {

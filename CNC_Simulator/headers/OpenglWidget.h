@@ -26,7 +26,6 @@ public:
     ~OpenGlWidget() override;
 
     void setData(Data inData);
-    void setData(vector<SurfacePoint> pts);
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
     //void sync(float zoomLevel, QVector3D rotation, QVector2D panOffset);
