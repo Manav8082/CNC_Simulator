@@ -1,5 +1,6 @@
 #include "SurfacePoint.h"
 #include<cmath>
+#include <unordered_set>
 using namespace Geometry;
  
 SurfacePoint::SurfacePoint(double _x, double _y, double _z)
@@ -80,4 +81,16 @@ void SurfacePoint::normalize() {
 		y /= length;
 		z /= length;
 	}
+}
+
+namespace std 
+{ 
+	template <>     
+	struct hash<SurfacePoint>
+	{ 
+		size_t operator()(SurfacePoint& v)
+		{ 
+			return hash<double>()(v.X()) ^ hash<double>()(v.Y()) ^ hash<double>()(v.Z());
+		} 
+	}; 
 }

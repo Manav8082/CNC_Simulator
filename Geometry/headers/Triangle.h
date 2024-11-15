@@ -1,6 +1,9 @@
 #pragma once
 #include <vector>
+#include "Edge.h"
+#include "Triangulation.h"
 #include "Point.h"
+using namespace std;
 namespace Geometry
 {
     class Triangle
@@ -22,7 +25,10 @@ namespace Geometry
         Point P3();
         Point Normal();
 
-        std::vector<Point> Points();
+        vector<Point> Points();
+
+
+        vector<Edge> getEdge(Geometry::Triangulation&);
     };
 
 }
