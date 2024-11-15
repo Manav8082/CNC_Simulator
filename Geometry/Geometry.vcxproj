@@ -113,7 +113,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Transformation\headers;$(ProjectDir)headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="headers\Edge.h" />
     <ClInclude Include="headers\Matrix4x4.h" />
     <ClInclude Include="headers\Point.h" />
     <ClInclude Include="headers\SurfacePoint.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="headers\Triangulation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Edge.cpp" />
     <ClCompile Include="src\Matrix4x4.cpp" />
     <ClCompile Include="src\Point.cpp" />
     <ClCompile Include="src\SurfacePoint.cpp" />

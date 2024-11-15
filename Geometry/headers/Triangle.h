@@ -28,7 +28,7 @@ namespace Geometry
         vector<Point> Points();
 
 
-        vector<Edge> getEdge(Geometry::Triangulation&);
+        vector<Edge> getEdge(Geometry::Triangulation& triangulation);
     };
 
 }
