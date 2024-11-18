@@ -4,7 +4,6 @@
 #include "BoundingBox.h"
 #include "Point.h"
 #include "Triangle.h"
-#include "SurfacePoint.h"
 #include <cmath>
 #include <Intersector.h>
 #include <qpainterpath.h>
@@ -27,43 +26,68 @@ void BoundingBox::FindMinMax(double xyz[3])
     Zmax = std::max(Zmax, xyz[2]);
 }
 
-std::vector<std::vector<SurfacePoint>> BoundingBox::GenerateTriangles()
+std::vector<std::vector<std::vector<double>>> BoundingBox::GenerateTriangles()
 {
-    SurfacePoint v0(Xmin, Ymin, Zmin);
-    SurfacePoint v1(Xmin, Ymin, Zmax);
-    SurfacePoint v2(Xmin, Ymax, Zmin);
-    SurfacePoint v3(Xmin, Ymax, Zmax);
-    SurfacePoint v4(Xmax, Ymin, Zmin);
-    SurfacePoint v5(Xmax, Ymin, Zmax);
-    SurfacePoint v6(Xmax, Ymax, Zmin);
-    SurfacePoint v7(Xmax, Ymax, Zmax);
+    std::vector<std::vector<std::vector<double>>> boundingBox;
+    vector<double> v0;
+    v0.push_back(Xmin);
+    v0.push_back(Ymin);
+    v0.push_back(Zmin);
+    vector<double> v1;
+    v1.push_back(Xmin);
+    v1.push_back(Ymin);
+    v1.push_back(Zmax);
+    vector<double> v2;
+    v2.push_back(Xmin);
+    v2.push_back(Ymax);
+    v2.push_back(Zmin);
+    vector<double> v3;
+    v3.push_back(Xmin);
+    v3.push_back(Ymax);
+    v3.push_back(Zmax);
+    vector<double> v4;
+    v4.push_back(Xmax);
+    v4.push_back(Ymin);
+    v4.push_back(Zmin);
+    vector<double> v5;
+    v5.push_back(Xmax);
+    v5.push_back(Ymin);
+    v5.push_back(Zmax);
+    vector<double> v6;
+    v6.push_back(Xmax);
+    v6.push_back(Ymax);
+    v6.push_back(Zmin);
+    vector<double> v7;
+    v7.push_back(Xmax);
+    v7.push_back(Ymax);
+    v7.push_back(Zmax);
+    
+    boundingBox.push_back({ v0, v2, v4 });
+    boundingBox.push_back({ v2, v6, v4 });
+    boundingBox.push_back({ v1, v3, v5 });
+    boundingBox.push_back({ v3, v7, v5 });
+    boundingBox.push_back({ v0, v2, v1 });
+    boundingBox.push_back({ v2, v3, v1 });
+    boundingBox.push_back({ v4, v6, v5 });
+    boundingBox.push_back({ v6, v7, v5 });
+    boundingBox.push_back({ v2, v6, v3 });
+    boundingBox.push_back({ v6, v7, v3 });
+    boundingBox.push_back({ v0, v4, v1 });
+    boundingBox.push_back({ v4, v5, v1 });
 
-
-    SurfacePoint normal1 = normal1.calculateNormal(v0, v2, v4);
-    triangles.push_back({ v0, v2, v4 });
-    SurfacePoint normal2 = normal2.calculateNormal(v2, v6, v4);
+    return boundingBox;
+   /* triangles.push_back({ v0, v2, v4 });
     triangles.push_back({ v2, v6, v4 });
-    SurfacePoint normal3 = normal3.calculateNormal(v1, v3, v5);
     triangles.push_back({ v1, v3, v5 });
-    SurfacePoint normal4 = normal4.calculateNormal(v3, v7, v5);
     triangles.push_back({ v3, v7, v5 });
-    SurfacePoint normal5 = normal5.calculateNormal(v0, v2, v1);
     triangles.push_back({ v0, v2, v1 });
-    SurfacePoint normal6 = normal6.calculateNormal(v2, v3, v1);
     triangles.push_back({ v2, v3, v1 });
-    SurfacePoint normal7 = normal7.calculateNormal(v4, v6, v5);
     triangles.push_back({ v4, v6, v5 });
-    SurfacePoint normal8 = normal8.calculateNormal(v6, v7, v5);
     triangles.push_back({ v6, v7, v5 });
-    SurfacePoint normal9 = normal9.calculateNormal(v2, v6, v3);
     triangles.push_back({ v2, v6, v3 });
-    SurfacePoint normal10 = normal10.calculateNormal(v6, v7, v3);
     triangles.push_back({ v6, v7, v3 });
-    SurfacePoint normal11 = normal11.calculateNormal(v0, v4, v1);
-
     triangles.push_back({ v0, v4, v1 });
-    SurfacePoint normal12 = normal12.calculateNormal(v4, v5, v1);
     triangles.push_back({ v4, v5, v1 });
 
-    return triangles;
+    return triangles;*/
 }

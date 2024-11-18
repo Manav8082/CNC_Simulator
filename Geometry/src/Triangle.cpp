@@ -8,7 +8,6 @@ Triangle::Triangle(Point normal, Point p1, Point p2, Point p3)
 
 Triangle::~Triangle()
 {
-
 }
 
 Point Triangle::P1()
@@ -35,22 +34,29 @@ std::vector<Point> Triangle::Points()
     return points;
 }
 
-std::vector<Edge> Geometry::Triangle::getEdge(Triangulation& tri)
-{
-    SurfacePoint s1 = SurfacePoint(tri.uniqueNumbers[P1().X()], tri.uniqueNumbers[P1().Y()], tri.uniqueNumbers[P1().Z()]);
-    SurfacePoint s2 = SurfacePoint(tri.uniqueNumbers[P2().X()], tri.uniqueNumbers[P2().Y()], tri.uniqueNumbers[P2().Z()]);
-    SurfacePoint s3 = SurfacePoint(tri.uniqueNumbers[P3().X()], tri.uniqueNumbers[P3().Y()], tri.uniqueNumbers[P3().Z()]);
 
-    std::vector<Edge> edges;
-    edges.push_back(Edge(s1, s2));
-    edges.push_back(Edge(s2, s3));
-    edges.push_back(Edge(s3, s1));
-    return edges;
-}
-
-Point Triangle::Normal()
+Geometry::Point Triangle::Normal()
 {
     return normal;
 }
 
+bool Triangle::operator==(const Triangle& other) const {
+    // Check if points match, allowing different orderings of the triangle's vertices
+    return (p1 == other.p1 && p2 == other.p2 && p3 == other.p3) ||
+        (p1 == other.p2 && p2 == other.p3 && p3 == other.p1) ||
+        (p1 == other.p3 && p2 == other.p1 && p3 == other.p2);
+}
 
+
+//std::size_t Triangle:: TriangleHash::operator()(const Triangle& t) const noexcept {
+//    // Combine the hashes of the three points (p1, p2, p3) in the triangle
+//    std::size_t h1 = Point::PointHash{}(t.p1);
+//    std::size_t h2 = Point::PointHash{}(t.p2);
+//    std::size_t h3 = Point::PointHash{}(t.p3);
+//
+//    // Combine the individual hashes into one using XOR and shifting
+//    return h1 ^ (h2 << 1) ^ (h3 << 2);
+//}
+//bool Geometry::Triangle::operator!=(Triangle& other) {
+//    //if();
+//}

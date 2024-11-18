@@ -1,6 +1,6 @@
 #include "Edge.h"
 
-Geometry::Edge::Edge(SurfacePoint& start, SurfacePoint& end)
+Geometry::Edge::Edge(Point& start,Point& end)
 	: start(start), end(end)
 {
 }
@@ -9,6 +9,7 @@ Geometry::Edge::~Edge()
 {
 
 }
+
 
 bool Geometry::Edge::operator==(const Edge& other) const
 {

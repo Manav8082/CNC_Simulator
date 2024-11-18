@@ -116,6 +116,7 @@
     <ClInclude Include="headers\Intersector.h" />
     <ClInclude Include="headers\PathCreator.h" />
     <ClInclude Include="headers\Reader.h" />
+    <ClInclude Include="headers\Writer.h" />
     <QtMoc Include="headers\OpenglWidget.h" />
     <ClInclude Include="headers\OBJReader.h" />
   </ItemGroup>
@@ -128,6 +129,7 @@
     <ClCompile Include="src\OpenglWidget.cpp" />
     <ClCompile Include="src\PathCreator.cpp" />
     <ClCompile Include="src\Reader.cpp" />
+    <ClCompile Include="src\Writer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

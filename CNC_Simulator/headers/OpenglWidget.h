@@ -7,9 +7,8 @@
 #include <QVector3D>
 #include <QMouseEvent>
 #include <vector>
-#include "SurfacePoint.h"
 using namespace std;
-using namespace Geometry;
+//using namespace Geometry;
 
 class OpenGlWidget : public QOpenGLWidget, protected QOpenGLFunctions {
     Q_OBJECT

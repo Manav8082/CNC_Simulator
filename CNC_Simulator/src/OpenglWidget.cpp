@@ -2,7 +2,7 @@
 #include <QFile>
 #include <QDataStream>
 #include <QDebug>
-using namespace Geometry;
+//using namespace Geometry;
 using namespace std;
 
 OpenGlWidget::OpenGlWidget(QWidget* parent)
@@ -25,7 +25,13 @@ void OpenGlWidget::setData(Data inData)
     initializeGL();
     update();
 }
-
+//void OpenGlWidget::setData1(Data indata)
+//{
+//    data = inData;
+//    makeCurrent();
+//    initializeGL();
+//    update();
+//}
 //void OpenGlWidget::setData(vector<SurfacePoint> pts)
 //{
 //    //data = inData;

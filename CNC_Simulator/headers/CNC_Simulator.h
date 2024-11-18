@@ -15,7 +15,7 @@ class CNC_Simulator : public QMainWindow
 private:
     void setupUi();
     OpenGlWidget::Data convertTrianglulationToGraphicsObject(const Triangulation& inTriangulation);
-    OpenGlWidget::Data convertBoundingBoxToGraphicsObject(const BoundingBox& b);
+    //OpenGlWidget::Data convertBoundingBoxToGraphicsObject( BoundingBox& b);
     void readFile(const QString&);
 
 public:

@@ -8,8 +8,8 @@ namespace Geometry
     public:
         Triangulation();
         ~Triangulation();
-
         std::vector<double> uniqueNumbers;
-        std::vector<Geometry::Triangle> Triangles;
+        std::vector<Triangle> Triangles;
+        std::vector<double> getcoordinates(Point&);
     };
 }

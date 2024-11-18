@@ -47,11 +47,12 @@ OpenGlWidget::Data CNC_Simulator::convertTrianglulationToGraphicsObject(const Tr
     return data;
 }
 
-//OpenGlWidget::Data CNC_Simulator::convertBoundingBoxToGraphicsObject(const BoundingBox& b)
+//OpenGlWidget::Data CNC_Simulator::convertBoundingBoxToGraphicsObject(BoundingBox& b)
 //{
 //
 //    OpenGlWidget::Data data;
-//    for (auto b1 : b.triangles)
+//    vector<vector<vector<double>>> bb=b.GenerateTriangles();
+//    for (auto b1 : bb)
 //    {
 //        
 //    }
@@ -72,7 +73,7 @@ CNC_Simulator::~CNC_Simulator()
 void CNC_Simulator::onSimulateClick()
 {
     PathCreator pc;
-    vector<vector<SurfacePoint>> vectorOfPoints = pc.CreatePath(inTri, 100, -100);
+    vector<vector<vector<double>>> vectorOfPoints = pc.CreatePath(inTri, 100, -100);
     OpenGlWidget::Data data = convertTrianglulationToGraphicsObject(inTri);
 
     

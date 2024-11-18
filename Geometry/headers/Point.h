@@ -1,4 +1,8 @@
 #pragma once
+#include <iostream>
+#include <unordered_set>
+#include <functional>
+
 namespace Geometry
 {
 	class Point
@@ -8,6 +12,7 @@ namespace Geometry
 		int mZ;
 
 	public:
+		Point();
 		Point(int x, int y, int z);
 		~Point();
 
@@ -16,5 +21,12 @@ namespace Geometry
 		int Z();
 		bool operator==(const Point& other) const;
 		bool operator<(const Point& other) const;
+		/*struct temp{
+			bool operator!=(Point& other) const;
+		};*/
+		
+		struct PointHash {
+			std::size_t operator()(const Point& p) const noexcept;
+		};
 	};
 }

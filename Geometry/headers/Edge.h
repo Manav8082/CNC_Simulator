@@ -1,13 +1,17 @@
-#include "SurfacePoint.h"
+#pragma once
+//#include "SurfacePoint.h"
+#include "Point.h"
+//#include "Triangulation.h"
 namespace Geometry
 {
 	class Edge
 	{
 	public:
-		SurfacePoint start;
-		SurfacePoint end;
+		Point start;
+		Point end;
 
-		Edge(SurfacePoint&, SurfacePoint&);
+		Edge(Point&, Point&);
+		//Edge(Point&, Point&);
 		~Edge();
 
 		bool operator==(const Edge& other) const;
